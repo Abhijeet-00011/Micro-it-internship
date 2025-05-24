@@ -15,16 +15,19 @@ int main()
          << "2.Medium\t\t0-100" << endl
          << "3.Hard\t\t\t0-1000" << endl;
     cout << "If you want to give up give 1001 " << endl;
-    while(true){
+     while(true){
     cin >> mode;
         if((mode<1)||(mode>3)){
         cout<<"INVALID INPUT!!PLEASE TRY AGAIN!!"<<endl;
+           continue; 
         }
-        if((mode>=1)||(mode<=3)){
-        break;
+         if((mode>0)||(mode<4)){
+             break;
+         }
+         
     }
+
     range = pow(10, mode);
-    cout << "Make a guess : ";
     int user_guess;
     int computer_generated;
     random_device rd;
@@ -33,29 +36,26 @@ int main()
     int random = dis(gen);
     while (true)
     {
-        cin >> user_guess;
-        if (user_guess == 1001)
-        {
-
-            cout << "YOU LOST!YOU GAVE UP!" << endl
-                 << "The answer is : " << random;
+    cout << "Make a guess : ";
+    cin >> user_guess;
+        if (user_guess == 1001){
+        cout << "YOU LOST!YOU GAVE UP!" << endl
+             << "The answer is : " << random;
             break;
         }
-        if ((user_guess > range) || (user_guess < 0))
-        {
-            cout << "Invalid input";
+        if ((user_guess > range) || (user_guess < 0)){
+        cout << "Invalid input";
             continue;
         }
-        if (user_guess == random)
-        {
-            cout << "CONGRATULATION !!YOU WIN !!";
+        if (user_guess == random){
+        cout<<"CONGRATULATION!! YOU WIN!!"<<endl;
             break;
         }
         if (user_guess > random)
         {
             if (user_guess < random + 0.5 * range / 10)
             {
-                cout << "You are much close so dont falter we know you can do it" << endl;
+                cout << "You are much close so dont falter you we know you can do it" << endl;
             }
             else if (user_guess < random + range / 10)
             {
@@ -86,7 +86,7 @@ int main()
         {
             if (user_guess > random - 0.5 * range / 10)
             {
-                cout << "You are much close so dont falter we know you can do it" << endl;
+                cout << "You are much close so dont falter you we know you can do it" << endl;
             }
             else if (user_guess > random - range / 10)
             {
